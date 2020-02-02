@@ -51,7 +51,7 @@ public class MyPanel extends JPanel {
             if(tuple.a == -1)
             g2d.drawImage(images.get(8),tuple.b,tuple.c,this);
         }
-        System.out.println("moves to draw: "+movesDraw.size());
+
 
         g2d.drawImage(images.get(7),x*fieldSize+fieldSize/2,y*fieldSize+fieldSize/2,this);
 

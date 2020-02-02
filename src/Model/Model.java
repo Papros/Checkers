@@ -21,17 +21,17 @@ public class Model {
 
 
     public void callToDraw(){
+
         controller.clearBuffor();
-        for (Pawn pawn:board.getBlackPawns() ) {
-            if(pawn.isInGame())
-            controller.callViewDraw(pawn.getColor(),pawn.getX(),pawn.getY());
-        }
 
-        for (Pawn pawn:board.getWhitePawns() ) {
-            if(pawn.isInGame())
-            controller.callViewDraw(pawn.getColor(),pawn.getX(),pawn.getY());
-        }
-
+        for(int i=0;i<8;i++)
+            for(int j=0;j<8;j++){
+                Pawn pawn = board.getPawnAt(i,j);
+                if(pawn != null)
+                    if(pawn.isInGame())
+                        controller.callViewDraw(pawn.getColor(),i,j);
+            }
+        
         for(Touple2 move:board.getPossibleMoves()){
             controller.callViewDraw(-1,move.a,move.b);
             System.out.println("MOVE: "+move.a+" : "+move.b);
@@ -41,8 +41,7 @@ public class Model {
 
 
     public void pickPawn(int xPos, int yPos) {
-
-        board.pickPawn(xPos,yPos);
-        callToDraw();
+        if(board.pickPawn(xPos,yPos))
+            callToDraw();
     }
 }

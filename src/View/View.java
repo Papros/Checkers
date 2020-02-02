@@ -110,9 +110,9 @@ public class View {
 
     public void callToDraw(int color, int posX, int posY) {
         if(color > 0)
-            ( (MyPanel) myPanel ).pushToDraw(new Tuple(color,posX*FIELD_SIZE+PAWN_PADDING+BOARD_PADDING,posY*FIELD_SIZE+PAWN_PADDING+BOARD_PADDING ));
+            ( (MyPanel) myPanel ).pushToDraw(new Tuple(color,posY*FIELD_SIZE+PAWN_PADDING+BOARD_PADDING,posX*FIELD_SIZE+PAWN_PADDING+BOARD_PADDING ));
         else
-            ( (MyPanel) myPanel ).pushMovesToDraw(new Tuple(color,posX*FIELD_SIZE+BOARD_PADDING,posY*FIELD_SIZE+BOARD_PADDING ));
+            ( (MyPanel) myPanel ).pushMovesToDraw(new Tuple(color,posY*FIELD_SIZE+BOARD_PADDING,posX*FIELD_SIZE+BOARD_PADDING ));
     }
 
     public void registerMove(int x,int y){
